@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Golos Text', sans-serif;}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(98,30,42,1) 50%, rgba(0,129,255,1) 100%);
+}
+
+.main-container__bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -200px;
+}
+
+svg {
+    transform: scale(.6);
+    transition-duration: 0.3s;
+}
+
+svg:hover {
+    transform: scale(.7);
+}
+
+.main-container__form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #04a3ff;
+}
+
+.input {
+    height: 30px;
+}
+
+
+#input-month, #input-year {
+    width: 80px;
+}
+
+#input-cvc {
+    width: 100px;
+}
+
+.form-group-date-cvc {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.button {
+    font-weight: 700;
+    background: #04a3ff;
+    height: 40px;
+    transition-duration: 0.3s;
+    border-radius: 20px;
+
+}
+
+.button:hover {
+    background: #007ec7;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
