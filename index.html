@@ -8,31 +8,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@600&display=swap" rel="stylesheet"><body>
     <title>Payment Form - Sorice Franco</title>
     <main class="main-container">
-        <div class="main-container__bg">
+        <div class="main-container__img">
             <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" id="credit-card"><path fill="#3F5EAB" d="M449.972 402.198 49.137 352.01c-11.646-1.458-19.904-12.081-18.446-23.728l28.33-226.272c1.458-11.646 12.081-19.905 23.728-18.447l400.835 50.188c11.646 1.458 19.904 12.082 18.446 23.728l-28.331 226.272c-1.458 11.646-12.081 19.905-23.727 18.447z"></path><linearGradient id="a" x1="60.149" x2="406.206" y1="466.36" y2="120.304" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0FF"></stop><stop offset="1" stop-color="#FF7BAC"></stop></linearGradient><path fill="url(#a)" d="M435.159 428.604H31.195c-11.737 0-21.252-9.516-21.252-21.252v-228.04c0-11.737 9.515-21.251 21.252-21.251h403.964c11.737 0 21.252 9.515 21.252 21.251v228.04c0 11.736-9.515 21.252-21.252 21.252z"></path><path fill="#FFF" d="M172.403 360.501c12.869 0 12.891-20 0-20H52.569c-12.869 0-12.89 20 0 20h119.834zM207.07 360.501h24.592c12.869 0 12.891-20 0-20H207.07c-12.869 0-12.89 20 0 20z"></path><linearGradient id="b" x1="287.932" x2="362.64" y1="354.056" y2="354.056" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B3B3B3"></stop><stop offset=".016" stop-color="#B7B7B7"></stop><stop offset=".152" stop-color="#D1D1D1"></stop><stop offset=".302" stop-color="#E5E5E5"></stop><stop offset=".47" stop-color="#F4F4F4"></stop><stop offset=".672" stop-color="#FCFCFC"></stop><stop offset="1" stop-color="#FFF"></stop></linearGradient><circle cx="325.286" cy="354.056" r="37.354" fill="url(#b)"></circle><circle cx="385.619" cy="354.056" r="37.354" fill="#3F5EAB"></circle><path fill="#FFF" d="M9.943 249.209c14.844 0 444.285.621 445.717 0 .177-.077.546 0 .751 0 .184 0 .19-25 0-25-14.843 0-444.284-.621-445.716 0-.178.077-.547 0-.752 0-.183 0-.19 25 0 25z"></path></svg>
         </div>
         <div class="main-container__form"> 
-            <form class="main-container__form-inputs" autocomplete="off">
-                <div class="form-group">
-                    <label for="input-name" class="label">NAME ON CARD</label>
-                    <input type="text" class="input" id="input-name" placeholder="e.g. Franco Sorice" required>
+            <form class="main-container__form-inputs" id="paymentForm">
+                <div class="form-group form-group-name-cardtype">
+                    <div class="form-group">
+                        <label for="input-name" class="label" id="input-name">NAME ON CARD</label>
+                        <input type="text" class="input" id="input-name" placeholder="e.g. Franco Sorice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-cardtype" class="label">CARD TYPE</label>
+                        <select name="input-cardtype" id="card">
+                            <option value=""></option>
+                            <option value="Visa">Visa</option>
+                            <option value="Visa debit">Visa debit</option>
+                            <option value="Mastercard">Mastercard</option>
+                            <option value="Mastercard debit">Mastercard debit</option>
+                            <option value="American Express">American Express</option>
+                        </select>
+                    </div>           
                 </div>
                 <div class="form-group">
                     <label for="input-number" class="label">CARD NUMBER</label>
-                    <input type="number" class="input" id="input-number" placeholder="XXXX - XXXX - XXXX - XXXX" required>
+                    <div class="form-group">
+                        <input type="number" class="input" id="input-number" maxlength="19" placeholder="XXXX - XXXX - XXXX - XXXX" required>
+                        <p class="input_number_error"></p>
+                    </div>
                 </div>
                 <div class="form-group form-group-date-cvc">
                     <div>
-                        <label for="input-expiration" class="label">EXP. DATE (MM/YY)</label>
-                        <div>
-                            <input type="number" class="input" id="input-month" placeholder="MM" required>
-                            <input type="number" class="input" id="input-year" placeholder="YY" required>
+                        <label for="input-expiration" class="label">EXP. DATE (MM/YYYY)</label>
+                        <div class="form-group-date">
+                            <div class="form-group">
+                                <input type="number" class="input" id="input-month" maxlength="2" placeholder="MM" pattern="{0,5}" required>
+                                <p class="input_month_error"></p>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="input" id="input-year" maxlength="4" placeholder="YYYY" required>
+                                <p class="input_year_error"></p>
+                            </div>
                         </div>
                     </div>
                     <div>
                         <label for="input-expiration" class="label">CVC</label>
                         <div>
-                            <input type="number" class="input" id="input-cvc" placeholder="XXX" required>
+                            <input type="number" class="input" id="input-cvc" maxlength="3" placeholder="XXX" required>
+                            <p class="input_cvc_error"></p>
                         </div>
                     </div>
                 </div>
@@ -41,6 +64,13 @@
                 </div>
             </form>
         </div>
+        <div class="div-purchase-completed displayNone">
+            <h1>Purchase completed, you will be receiving your package in the next few days</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve"><defs></defs><g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" ><path d="M 45 90 C 20.187 90 0 69.813 0 45 C 0 20.187 20.187 0 45 0 c 24.813 0 45 20.187 45 45 C 90 69.813 69.813 90 45 90 z M 45 7 C 24.047 7 7 24.047 7 45 s 17.047 38 38 38 s 38 -17.047 38 -38 S 65.953 7 45 7 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 129, 189); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 42.245 62.755 c -1.021 0 -1.992 -0.445 -2.657 -1.222 L 22.121 41.159 c -1.258 -1.468 -1.088 -3.678 0.379 -4.936 c 1.466 -1.258 3.677 -1.089 4.935 0.379 L 42.162 53.78 l 20.334 -25.231 c 1.215 -1.506 3.417 -1.741 4.922 -0.529 c 1.505 1.214 1.742 3.417 0.529 4.922 L 44.97 61.451 c -0.653 0.81 -1.632 1.287 -2.672 1.304 C 42.28 62.755 42.262 62.755 42.245 62.755 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0, 129, 189); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /></g></svg>
+        </div>
+        <script src="americanTypeValid.js"></script>
+        <script src="script.js"></script>
+        <script src="maxValid.js"></script>
     </main>
 </body>
 </html>

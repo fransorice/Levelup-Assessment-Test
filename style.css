@@ -14,7 +14,7 @@
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(98,30,42,1) 50%, rgba(0,129,255,1) 100%);
 }
 
-.main-container__bg {
+.main-container__img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,30 +41,49 @@ svg:hover {
     flex-direction: column;
 }
 
+.form-group-date {
+    display: flex;
+    flex-direction: row;
+}
+
 .label {
     font-weight: bold;
     font-size: 1.2rem;
     color: #04a3ff;
 }
 
-.input {
+.input, select{
     height: 30px;
 }
 
+.p__cardtype {
+    margin-top: 5px;
+}
 
 #input-month, #input-year {
     width: 80px;
+}
+
+.input_month_error, .input_year_error, .input_number_error, .input_number_error, .input_cvc_error {
+    color: red;
+    text-align: center;
+    font-size: 12px;
 }
 
 #input-cvc {
     width: 100px;
 }
 
-.form-group-date-cvc {
+.form-group-date-cvc, .input_number_error, .input_cvc_error {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+.form-group-name-cardtype {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .button {
@@ -84,4 +103,15 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+
+.div-purchase-completed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(0, 189, 0);
+}
+
+.displayNone {
+    display: none;
 }
